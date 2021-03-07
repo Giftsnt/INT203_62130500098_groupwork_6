@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+
+    <!-- https://tailwindcss.com/docs/installation -->
+    <!-- Using Tailwind via CDN -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+    <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+    <!-- Vue CDN -->
+    <script src="https://unpkg.com/vue@next"></script>
+
+    <!--CSS-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!--JS-->
+    <script rel="stylesheet" src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js">
+    </script>
+    <script rel="stylesheet" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+
+</head>
+
+<body>
+    <div id="app" class="padding">
+        <div class="col-md-8">
+            <!-- Column -->
+            <div class="card">
+                <div class="card-body little-profile text-center m-4">
+                    <div class="pro-img items-center"><img src="/images/2.JPG" alt="user"></div>
+                    <h3 class="m-b-0 text-center"> My Profile </h3>
+                </div>
+                <form @submit.prevent="checkForm">
+                    <p v-if="errors" class="text-red-500">
+                        <b>Please correct the following error(s):</b>
+                        <ul>
+                            <li v-for="error in errors" class="text-red-500">{{ error }}</li>
+                        </ul>
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label for="firstname" class="text-sm leading-7 text-gray-600 p-2">First Name</label>
+                            <input type="text" id="firstname" v-model="firstname" name="firstname"
+                                class="bg-gray-100 rounded px-4 py-2 mb-4">
+                        </div>
+                        <div>
+                            <label for="lastname" class="text-sm leading-7 text-gray-600">Last Name</label>
+                            <input type="text" id="lastname" v-model="lastname" name="lastname"
+                                class="bg-gray-100 rounded px-4 py-2 mb-4">
+                        </div>
+                        <div>
+                            <label for="email" class="text-sm leading-7 text-gray-600 p-2">Email</label>
+                            <input type="text" id="email" v-model="email" name="email"
+                                class="bg-gray-100 rounded px-4 py-2 mb-4">
+                        </div>
+                        <div>
+                            <label for="password" class="text-sm leading-7 text-gray-600 p-2">Password</label>
+                            <input type="password" id="password" v-model="password" name="password"
+                                class="bg-gray-100 rounded px-4 py-2 mb-4">
+                        </div>
+                        <div>
+                            <label for="phone" class="text-sm leading-7 text-gray-600">Phone Number</label>
+                            <input type="text" id="phone" v-model="phone" name="phone"
+                                class="bg-gray-100 rounded px-4 py-2 mb-4">
+                        </div>
+                    </div>
+                    <div>
+                        <input class="m-t-10 waves-effect waves-dark btn btn-primary btn-md btn-rounded submit"
+                            type="submit" value="Submit">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./profile.js"></script>
+
+</body>
+
+</html>
